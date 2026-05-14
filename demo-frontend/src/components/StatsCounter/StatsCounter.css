@@ -1,0 +1,99 @@
+/* ═══════════════════════════════════════════════════
+   STATS COUNTER — Personalizza qui
+   ═══════════════════════════════════════════════════ */
+
+.tpl-stats {
+    --stats-bg: #00a72a;
+    --stats-text: #ffffff;
+    --stats-number-size: clamp(2rem, 4vw, 3.2rem);
+    --stats-label-size: clamp(0.8rem, 1.1vw, 0.95rem);
+    --stats-divider: rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Sezione ────────────────────────────────────── */
+
+.tpl-stats {
+    background: var(--stats-bg);
+    padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 3.5rem);
+}
+
+.tpl-stats__grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ─── Singolo contatore ──────────────────────────── */
+
+.tpl-stats__item {
+    flex: 1 1 180px;
+    text-align: center;
+    padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 2.5vw, 2rem);
+    position: relative;
+}
+
+/* Divider verticale tra gli item */
+.tpl-stats__item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: var(--stats-divider);
+}
+
+.tpl-stats__number {
+    display: block;
+    font-size: var(--stats-number-size);
+    font-weight: 800;
+    color: var(--stats-text);
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+}
+
+.tpl-stats__suffix {
+    font-size: 0.6em;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.tpl-stats__label {
+    display: block;
+    font-size: var(--stats-label-size);
+    color: var(--stats-text);
+    opacity: 0.8;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ─── Icona opzionale ────────────────────────────── */
+
+.tpl-stats__icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+    display: block;
+    opacity: 0.7;
+}
+
+/* ─── Mobile ─────────────────────────────────────── */
+
+@media (max-width: 600px) {
+    .tpl-stats__grid {
+        flex-direction: column;
+    }
+
+    .tpl-stats__item:not(:last-child)::after {
+        /* Divider diventa orizzontale su mobile */
+        right: 20%;
+        top: auto;
+        bottom: 0;
+        height: 1px;
+        width: 60%;
+    }
+}

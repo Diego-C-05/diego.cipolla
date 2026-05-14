@@ -1,0 +1,100 @@
+/* ═══════════════════════════════════════════════════
+   CALL TO ACTION — Personalizza qui
+   ═══════════════════════════════════════════════════ */
+
+.tpl-cta {
+    --cta-bg: linear-gradient(135deg, #00a72a 0%, #00c853 100%);
+    --cta-text: #ffffff;
+    --cta-btn-bg: #ffffff;
+    --cta-btn-color: #00a72a;
+    --cta-btn-radius: 10px;
+    --cta-pattern-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ─── Sezione ────────────────────────────────────── */
+
+.tpl-cta {
+    background: var(--cta-bg);
+    padding: clamp(2.5rem, 5vw, 4rem) clamp(1rem, 4vw, 3.5rem);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pattern decorativo di sfondo */
+.tpl-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 20% 50%, var(--cta-pattern-color) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--cta-pattern-color) 0%, transparent 40%),
+        radial-gradient(circle at 60% 80%, var(--cta-pattern-color) 0%, transparent 45%);
+    pointer-events: none;
+}
+
+.tpl-cta__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* ─── Testi ──────────────────────────────────────── */
+
+.tpl-cta__title {
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: var(--cta-text);
+    line-height: 1.2;
+}
+
+.tpl-cta__text {
+    margin: 0 0 1.8rem;
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+    color: var(--cta-text);
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* ─── Bottone ────────────────────────────────────── */
+
+.tpl-cta__button {
+    display: inline-block;
+    border: none;
+    border-radius: var(--cta-btn-radius);
+    padding: clamp(0.7rem, 1.4vw, 0.9rem) clamp(1.8rem, 3vw, 2.5rem);
+    background: var(--cta-btn-bg);
+    color: var(--cta-btn-color);
+    font-weight: 700;
+    font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tpl-cta__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Variante scura ─────────────────────────────── */
+
+.tpl-cta--dark {
+    --cta-bg: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    --cta-btn-bg: #00a72a;
+    --cta-btn-color: #ffffff;
+    --cta-pattern-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ─── Variante con bordo ─────────────────────────── */
+
+.tpl-cta--bordered {
+    background: transparent;
+    border-top: 3px solid #00a72a;
+    border-bottom: 3px solid #00a72a;
+    --cta-text: #1a1a1a;
+    --cta-btn-bg: #00a72a;
+    --cta-btn-color: #ffffff;
+}

@@ -1,0 +1,181 @@
+/* ═══════════════════════════════════════════════════
+   IMAGE GALLERY — Personalizza qui
+   ═══════════════════════════════════════════════════ */
+
+.tpl-gallery {
+    --gallery-bg: #ffffff;
+    --gallery-accent: #00a72a;
+    --gallery-gap: clamp(6px, 1vw, 10px);
+    --gallery-radius: 10px;
+    --gallery-overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* ─── Sezione ────────────────────────────────────── */
+
+.tpl-gallery {
+    background: var(--gallery-bg);
+    padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3.5rem);
+}
+
+.tpl-gallery__heading {
+    text-align: center;
+    margin: 0 0 2rem;
+    font-size: clamp(1.3rem, 2.3vw, 2rem);
+    font-weight: 800;
+    color: var(--gallery-accent);
+}
+
+/* ─── Griglia ────────────────────────────────────── */
+
+.tpl-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--gallery-gap);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ─── Singola immagine ───────────────────────────── */
+
+.tpl-gallery__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--gallery-radius);
+    cursor: pointer;
+    aspect-ratio: 4 / 3;
+}
+
+.tpl-gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.tpl-gallery__item:hover img {
+    transform: scale(1.08);
+}
+
+/* Overlay al hover */
+.tpl-gallery__item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 167, 42, 0.15);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.tpl-gallery__item:hover::after {
+    opacity: 1;
+}
+
+/* Caption sull'immagine */
+.tpl-gallery__item-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.6rem 0.8rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.tpl-gallery__item:hover .tpl-gallery__item-caption {
+    transform: translateY(0);
+}
+
+/* ─── Lightbox ───────────────────────────────────── */
+
+.tpl-gallery__lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--gallery-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    animation: tpl-gallery-fade-in 0.25s ease;
+}
+
+@keyframes tpl-gallery-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tpl-gallery__lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.tpl-gallery__lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    backdrop-filter: blur(4px);
+}
+
+.tpl-gallery__lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.tpl-gallery__lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+}
+
+.tpl-gallery__lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.tpl-gallery__lightbox-nav--prev { left: 1.5rem; }
+.tpl-gallery__lightbox-nav--next { right: 1.5rem; }
+
+/* ─── Caption nel lightbox ───────────────────────── */
+
+.tpl-gallery__lightbox-caption {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: center;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}

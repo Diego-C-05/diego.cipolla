@@ -1,0 +1,212 @@
+/* ═══════════════════════════════════════════════════
+   REGISTRATION FORM — Personalizza qui
+   ═══════════════════════════════════════════════════ */
+
+.tpl-form {
+    --form-bg: #f0f0f0;
+    --form-card-bg: #ffffff;
+    --form-accent: #00a72a;
+    --form-accent-dark: #008a22;
+    --form-text: #1a1a1a;
+    --form-text-light: #666;
+    --form-border: #d0d0d0;
+    --form-border-focus: #00a72a;
+    --form-radius: 10px;
+    --form-error: #d32f2f;
+    --form-success: #2e7d32;
+}
+
+/* ─── Sezione ────────────────────────────────────── */
+
+.tpl-form {
+    background: var(--form-bg);
+    padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3.5rem);
+    border-top: 3px solid var(--form-accent);
+}
+
+.tpl-form__container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: start;
+}
+
+/* ─── Colonna sinistra (info) ────────────────────── */
+
+.tpl-form__info {
+    padding-right: 1rem;
+}
+
+.tpl-form__title {
+    margin: 0 0 0.8rem;
+    font-size: clamp(1.3rem, 2.3vw, 2rem);
+    font-weight: 800;
+    color: var(--form-text);
+}
+
+.tpl-form__description {
+    margin: 0 0 1.5rem;
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+    color: var(--form-text-light);
+    line-height: 1.6;
+}
+
+.tpl-form__info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.tpl-form__info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: var(--form-text);
+}
+
+.tpl-form__info-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 167, 42, 0.1);
+    color: var(--form-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* ─── Form card ──────────────────────────────────── */
+
+.tpl-form__card {
+    background: var(--form-card-bg);
+    border-radius: var(--form-radius);
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ─── Campi ──────────────────────────────────────── */
+
+.tpl-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.tpl-form__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--form-text);
+}
+
+.tpl-form__label--required::after {
+    content: ' *';
+    color: var(--form-error);
+}
+
+.tpl-form__input,
+.tpl-form__textarea,
+.tpl-form__select {
+    width: 100%;
+    border: 1.5px solid var(--form-border);
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+    color: var(--form-text);
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+
+.tpl-form__input:focus,
+.tpl-form__textarea:focus,
+.tpl-form__select:focus {
+    outline: none;
+    border-color: var(--form-border-focus);
+    box-shadow: 0 0 0 3px rgba(0, 167, 42, 0.12);
+}
+
+.tpl-form__textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ─── Riga a 2 colonne ──────────────────────────── */
+
+.tpl-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* ─── Bottone submit ─────────────────────────────── */
+
+.tpl-form__submit {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    background: var(--form-accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 0.5rem;
+}
+
+.tpl-form__submit:hover:not(:disabled) {
+    background: var(--form-accent-dark);
+    transform: translateY(-1px);
+}
+
+.tpl-form__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ─── Messaggi ───────────────────────────────────── */
+
+.tpl-form__message {
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.tpl-form__message--success {
+    background: rgba(46, 125, 50, 0.08);
+    color: var(--form-success);
+    border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.tpl-form__message--error {
+    background: rgba(211, 47, 47, 0.06);
+    color: var(--form-error);
+    border: 1px solid rgba(211, 47, 47, 0.15);
+}
+
+/* ─── Mobile ─────────────────────────────────────── */
+
+@media (max-width: 700px) {
+    .tpl-form__container {
+        grid-template-columns: 1fr;
+    }
+
+    .tpl-form__info {
+        padding-right: 0;
+    }
+
+    .tpl-form__row {
+        grid-template-columns: 1fr;
+    }
+}

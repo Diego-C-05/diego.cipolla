@@ -1,0 +1,120 @@
+/* ═══════════════════════════════════════════════════
+   HERO — Personalizza qui
+   ═══════════════════════════════════════════════════ */
+
+.tpl-hero {
+    --hero-overlay: rgba(0, 80, 20, 0.45);
+    --hero-text-color: #ffffff;
+    --hero-height: clamp(320px, 50vw, 560px);
+    --hero-cta-bg: #00a72a;
+    --hero-cta-color: #ffffff;
+    --hero-cta-radius: 10px;
+}
+
+/* ─── Layout ─────────────────────────────────────── */
+
+.tpl-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.tpl-hero__image {
+    height: var(--hero-height);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem clamp(1rem, 5vw, 4rem);
+}
+
+/* ─── Overlay (tinta sopra l'immagine) ───────────── */
+
+.tpl-hero__image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay);
+    z-index: 1;
+}
+
+.tpl-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+/* ─── Testo ──────────────────────────────────────── */
+
+.tpl-hero__title {
+    margin: 0 0 0.6rem;
+    color: var(--hero-text-color);
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.tpl-hero__subtitle {
+    margin: 0 0 1.5rem;
+    color: var(--hero-text-color);
+    font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+    font-weight: 400;
+    opacity: 0.9;
+    line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── CTA Button ─────────────────────────────────── */
+
+.tpl-hero__cta {
+    display: inline-block;
+    border: none;
+    border-radius: var(--hero-cta-radius);
+    padding: clamp(0.7rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--hero-cta-bg);
+    color: var(--hero-cta-color);
+    font-weight: 700;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tpl-hero__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 167, 42, 0.35);
+}
+
+/* ─── Scroll indicator (opzionale) ───────────────── */
+
+.tpl-hero__scroll {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 28px;
+    height: 44px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.tpl-hero__scroll-dot {
+    width: 4px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+    animation: tpl-hero-scroll 1.8s ease-in-out infinite;
+}
+
+@keyframes tpl-hero-scroll {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(12px); opacity: 0.3; }
+}

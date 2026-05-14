@@ -1,0 +1,122 @@
+/* ═══════════════════════════════════════════════════
+   FEATURE CARDS — Personalizza qui
+   ═══════════════════════════════════════════════════ */
+
+.tpl-features {
+    --features-bg: #f5f5f5;
+    --features-card-bg: #ffffff;
+    --features-title-color: #00a72a;
+    --features-text-color: #333;
+    --features-icon-color: #00a72a;
+    --features-icon-bg: rgba(0, 167, 42, 0.08);
+    --features-card-radius: 14px;
+    --features-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    --features-card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.1);
+    --features-divider-color: #00a72a;
+}
+
+/* ─── Sezione ────────────────────────────────────── */
+
+.tpl-features {
+    background: var(--features-bg);
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3.5rem);
+}
+
+.tpl-features__heading {
+    text-align: center;
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    font-weight: 800;
+    color: var(--features-title-color);
+}
+
+.tpl-features__subheading {
+    text-align: center;
+    margin: 0 auto 2.5rem;
+    max-width: 600px;
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    color: var(--features-text-color);
+    opacity: 0.7;
+    line-height: 1.5;
+}
+
+/* ─── Griglia card ───────────────────────────────── */
+
+.tpl-features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1rem, 2.5vw, 1.8rem);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ─── Singola card ───────────────────────────────── */
+
+.tpl-features__card {
+    background: var(--features-card-bg);
+    border-radius: var(--features-card-radius);
+    padding: clamp(1.5rem, 2.5vw, 2rem);
+    box-shadow: var(--features-card-shadow);
+    transition: transform 0.25s, box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tpl-features__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--features-card-shadow-hover);
+}
+
+/* ─── Icona o immagine ───────────────────────────── */
+
+.tpl-features__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: var(--features-icon-bg);
+    color: var(--features-icon-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    flex-shrink: 0;
+}
+
+.tpl-features__card-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+}
+
+/* ─── Testi ──────────────────────────────────────── */
+
+.tpl-features__card-title {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 700;
+    color: var(--features-title-color);
+}
+
+.tpl-features__card-text {
+    margin: 0;
+    font-size: clamp(0.82rem, 0.95vw, 0.92rem);
+    color: var(--features-text-color);
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+/* ─── Divider tra card (modalità lista) ──────────── */
+
+.tpl-features__divider {
+    width: min(30%, 200px);
+    height: 2px;
+    background: var(--features-divider-color);
+    border-radius: 1px;
+    margin: 0 auto;
+    opacity: 0.4;
+}

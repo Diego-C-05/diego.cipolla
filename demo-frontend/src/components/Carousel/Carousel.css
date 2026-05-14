@@ -1,0 +1,150 @@
+/* ═══════════════════════════════════════════════════
+   CAROUSEL — Personalizza qui
+   ═══════════════════════════════════════════════════ */
+
+.tpl-carousel {
+    --carousel-height: clamp(280px, 40vw, 500px);
+    --carousel-dot-color: rgba(255, 255, 255, 0.5);
+    --carousel-dot-active: #ffffff;
+    --carousel-arrow-bg: rgba(0, 0, 0, 0.35);
+    --carousel-arrow-color: #ffffff;
+    --carousel-caption-bg: rgba(0, 0, 0, 0.45);
+    --carousel-transition: 0.6s;
+}
+
+/* ─── Container ──────────────────────────────────── */
+
+.tpl-carousel {
+    position: relative;
+    width: 100%;
+    height: var(--carousel-height);
+    overflow: hidden;
+    background: #111;
+}
+
+/* ─── Slides ─────────────────────────────────────── */
+
+.tpl-carousel__track {
+    display: flex;
+    height: 100%;
+    transition: transform var(--carousel-transition) ease-in-out;
+}
+
+.tpl-carousel__slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.tpl-carousel__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ─── Didascalia ─────────────────────────────────── */
+
+.tpl-carousel__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.2rem 2rem;
+    background: var(--carousel-caption-bg);
+    backdrop-filter: blur(4px);
+    color: #fff;
+}
+
+.tpl-carousel__caption h3 {
+    margin: 0 0 0.25rem;
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    font-weight: 700;
+}
+
+.tpl-carousel__caption p {
+    margin: 0;
+    font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+    opacity: 0.85;
+    line-height: 1.4;
+}
+
+/* ─── Frecce navigazione ─────────────────────────── */
+
+.tpl-carousel__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: var(--carousel-arrow-bg);
+    color: var(--carousel-arrow-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+    backdrop-filter: blur(4px);
+}
+
+.tpl-carousel__arrow:hover {
+    background: rgba(0, 0, 0, 0.55);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.tpl-carousel__arrow--prev {
+    left: 1rem;
+}
+
+.tpl-carousel__arrow--next {
+    right: 1rem;
+}
+
+/* ─── Dots ───────────────────────────────────────── */
+
+.tpl-carousel__dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 5;
+    /* Se c'è la caption, spostali sopra */
+}
+
+.tpl-carousel__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: var(--carousel-dot-color);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+}
+
+.tpl-carousel__dot--active {
+    background: var(--carousel-dot-active);
+    transform: scale(1.25);
+}
+
+/* ─── Con caption: sposta i dots sopra ───────────── */
+
+.tpl-carousel--has-captions .tpl-carousel__dots {
+    bottom: auto;
+    top: 1rem;
+}
+
+@media (max-width: 600px) {
+    .tpl-carousel__arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}

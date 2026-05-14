@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════════════════
+   PROPOSAL LIST — Personalizza qui
+   ═══════════════════════════════════════════════════ */
+
+.tpl-list {
+    --list-bg: #ffffff;
+    --list-card-bg: #f9f9f9;
+    --list-accent: #00a72a;
+    --list-text: #1a1a1a;
+    --list-text-light: #666;
+    --list-card-radius: 12px;
+    --list-card-border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ─── Sezione ────────────────────────────────────── */
+
+.tpl-list {
+    background: var(--list-bg);
+    padding: clamp(2rem, 4vw, 3.5rem) clamp(1rem, 4vw, 3.5rem);
+}
+
+.tpl-list__heading {
+    text-align: center;
+    margin: 0 0 0.4rem;
+    font-size: clamp(1.3rem, 2.3vw, 2rem);
+    font-weight: 800;
+    color: var(--list-accent);
+}
+
+.tpl-list__subheading {
+    text-align: center;
+    margin: 0 auto 2rem;
+    max-width: 500px;
+    font-size: 0.9rem;
+    color: var(--list-text-light);
+    line-height: 1.5;
+}
+
+/* ─── Griglia ────────────────────────────────────── */
+
+.tpl-list__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: clamp(0.8rem, 1.5vw, 1.2rem);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ─── Card ───────────────────────────────────────── */
+
+.tpl-list__card {
+    background: var(--list-card-bg);
+    border: var(--list-card-border);
+    border-radius: var(--list-card-radius);
+    padding: clamp(1.1rem, 2vw, 1.5rem);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tpl-list__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+}
+
+.tpl-list__card-title {
+    margin: 0 0 0.4rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--list-accent);
+}
+
+.tpl-list__card-text {
+    margin: 0 0 0.6rem;
+    font-size: 0.85rem;
+    color: var(--list-text);
+    line-height: 1.5;
+    /* Tronca il testo dopo 3 righe */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tpl-list__card-meta {
+    font-size: 0.78rem;
+    color: var(--list-text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* ─── Stati ──────────────────────────────────────── */
+
+.tpl-list__loading,
+.tpl-list__error,
+.tpl-list__empty {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.95rem;
+}
+
+.tpl-list__loading {
+    color: var(--list-text-light);
+}
+
+.tpl-list__error {
+    color: #d32f2f;
+}
+
+.tpl-list__empty {
+    color: var(--list-text-light);
+    font-style: italic;
+}
+
+/* ─── Loading spinner ────────────────────────────── */
+
+.tpl-list__spinner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(0, 167, 42, 0.2);
+    border-top-color: var(--list-accent);
+    border-radius: 50%;
+    animation: tpl-list-spin 0.7s linear infinite;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes tpl-list-spin {
+    to { transform: rotate(360deg); }
+}

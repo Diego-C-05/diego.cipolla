@@ -1,0 +1,191 @@
+/* ═══════════════════════════════════════════════════
+   FOOTER — Personalizza qui
+   ═══════════════════════════════════════════════════ */
+
+.tpl-footer {
+    --footer-bg: #1a1a1a;
+    --footer-text: #c0c0c0;
+    --footer-heading: #ffffff;
+    --footer-accent: #00a72a;
+    --footer-link-hover: #ffffff;
+    --footer-border: rgba(255, 255, 255, 0.08);
+    --footer-bottom-bg: rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Layout ─────────────────────────────────────── */
+
+.tpl-footer {
+    background: var(--footer-bg);
+    padding: 0;
+}
+
+.tpl-footer__main {
+    display: grid;
+    grid-template-columns: 1.3fr repeat(auto-fit, minmax(160px, 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    padding: clamp(2rem, 4vw, 3.5rem) clamp(1.2rem, 4vw, 3.5rem);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ─── Colonna brand ──────────────────────────────── */
+
+.tpl-footer__brand {
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 800;
+    color: var(--footer-accent);
+    letter-spacing: 0.03em;
+}
+
+.tpl-footer__brand-text {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--footer-text);
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* ─── Colonne ────────────────────────────────────── */
+
+.tpl-footer__column h4 {
+    margin: 0 0 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--footer-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.tpl-footer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.tpl-footer__list a {
+    text-decoration: none;
+    color: var(--footer-text);
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.tpl-footer__list a:hover {
+    color: var(--footer-link-hover);
+}
+
+/* Riga contatto (con icona) */
+.tpl-footer__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--footer-text);
+}
+
+.tpl-footer__contact-icon {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+/* ─── Social icons ───────────────────────────────── */
+
+.tpl-footer__social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.tpl-footer__social-link {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--footer-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.tpl-footer__social-link:hover {
+    background: var(--footer-accent);
+    color: #fff;
+}
+
+/* ─── Bottom bar ─────────────────────────────────── */
+
+.tpl-footer__bottom {
+    background: var(--footer-bottom-bg);
+    border-top: 1px solid var(--footer-border);
+    padding: 1rem clamp(1.2rem, 4vw, 3.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tpl-footer__copyright {
+    margin: 0;
+    font-size: 0.78rem;
+    color: var(--footer-text);
+    opacity: 0.7;
+}
+
+.tpl-footer__bottom-links {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.tpl-footer__bottom-links a {
+    text-decoration: none;
+    color: var(--footer-text);
+    font-size: 0.78rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.tpl-footer__bottom-links a:hover {
+    opacity: 1;
+}
+
+/* ─── Variante chiara ────────────────────────────── */
+
+.tpl-footer--light {
+    --footer-bg: #f5f5f5;
+    --footer-text: #666;
+    --footer-heading: #1a1a1a;
+    --footer-link-hover: #1a1a1a;
+    --footer-border: rgba(0, 0, 0, 0.08);
+    --footer-bottom-bg: rgba(0, 0, 0, 0.03);
+}
+
+/* ─── Mobile ─────────────────────────────────────── */
+
+@media (max-width: 700px) {
+    .tpl-footer__main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tpl-footer__brand-col {
+        grid-column: 1 / -1;
+    }
+
+    .tpl-footer__bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .tpl-footer__main {
+        grid-template-columns: 1fr;
+    }
+}
