@@ -28,10 +28,7 @@ public class ItemService {
      *
      * Aggiornare la firma se si aggiungono colonne/parametri nel DB.
      */
-    public Item save(
-            String title,
-            String body,
-            String email) {
+    public Item save(String title, String body, String email) {
 
         Item entity = new Item();
         entity.setTitle(title);

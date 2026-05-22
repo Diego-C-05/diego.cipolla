@@ -41,7 +41,7 @@ package it.demo.app.controllers;
 	        // Aggiungi altri campi qui...
 	    }
 	
-	    // DTO (quello che il frontend riceve)
+	    // DTO (quello che il frontend riceve dopo la get)
 	    @Data
 	    @NoArgsConstructor
 	    @AllArgsConstructor
@@ -51,7 +51,7 @@ package it.demo.app.controllers;
 	        private String body;
 	    }
 	
-	    // DTO per la risposta all'inserimento
+	    // DTO per la risposta all'inserimento della post
 	    @Data
 	    @AllArgsConstructor
 	    public static class ItemResultDTO {
