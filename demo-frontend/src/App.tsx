@@ -197,7 +197,7 @@ function App() {
                 <Carousel
                     slides={CAROUSEL_SLIDES}
                     autoplay
-                    interval={4000}
+                    interval={6000}
                 />
             </section>
 
